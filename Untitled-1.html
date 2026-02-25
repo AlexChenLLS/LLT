@@ -136,7 +136,7 @@
             let obstacleX = $('#obstacle').css('transform').split(", ")[4];
             console.log(playerY + " " + obstacleX);
             // Compare the numbers for the gameover situation
-            if(playerY > -90 && obstacleX > 30 && obstacleX < 200){
+            if(playerY > 200 && obstacleX > 30 && obstacleX < 200){
                 $("#gameover").show();
                 $("#gameover").css("animation-name","gameoverAnimation");
                 $(".cloud").css("animation-play-state","paused");
@@ -148,10 +148,12 @@
         }
 
         // Make an obstacle by starting the obstacle animation
-        function makeObstacle() {
+     function makeObstacle() {
 
-            // You need to show the obstacle and start the animation here
-        }
+        // You need to show the obstacle and start the animation here
+        $("#obstacle").show();
+        $("#obstacle").css("animation-name","obstacleAnimation");
+    }
 
         // Make the player jump by starting the player animation
         function jump() {
@@ -171,6 +173,8 @@
 
             // The obstacle animation has finished
             $("#obstacle").on("animationend", function() {
+                $("#obstacle").hide();
+                $("#obstacle").css("animation-name",'none')
 
                 // You need to hide the obstacle and stop the animation here
 
@@ -208,7 +212,7 @@
         </div>
 
         <div class="cloud" id="cloud1">
-            <img src="C:\Users\s220010\.vscode\LLT\anoncircle.gif">
+            <img src="anoncircle.gif">
         </div>
 
         <div class="cloud" id="cloud2">
@@ -219,7 +223,7 @@
         </div>
 
         <div id="player">
-            <img src="C:\Users\s220010\.vscode\LLT\Lilithstand.png" width="150" height="220"/>
+            <img src="Lilithstand.png" width="150" height="220"/>
         </div>
         
         <div id="score">
