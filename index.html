@@ -126,6 +126,7 @@
     </style>
     <script>
         let Obstacle_time = 3;
+        let score =0;
         // Check whether the game is over if the player is near the obstacle
         function checkGameover() {
 
@@ -173,6 +174,9 @@
 
             // The obstacle animation has finished
             $("#obstacle").on("animationend", function() {
+               score=score+10;
+               $("#score-value").html(score);
+
                 $("#obstacle").hide();
                 $("#obstacle").css("animation-name",'none')
 
@@ -212,14 +216,15 @@
         </div>
 
         <div class="cloud" id="cloud1">
-            <img src="anoncircle.gif">
+            <img src="anoncircle.gif"width="200" height="100">
         </div>
 
         <div class="cloud" id="cloud2">
+            <img src="lilithbighead.jpg"width="200" height="100">
         </div>
 
         <div id="obstacle">
-            <img src="https://png.pngtree.com/png-vector/20220118/ourmid/pngtree-no-obstacles-png-image_4303240.png" width="120" height="120"/>
+            <img src="fatteto.png" width="120" height="120"/>
         </div>
 
         <div id="player">
